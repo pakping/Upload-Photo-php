@@ -41,7 +41,7 @@ if (isset($_POST['btn_upload'])) {
                 <input type="file" name="file_img" required>
             </div>
             <div class="title-field">
-                <input type="text" name="img_title" placeholder="Image title" required>
+                <input type="text" name="img_title" placeholder="Image name" required>
             </div>
             <input type="submit" value="Upload Image" name="btn_upload" class="btn_upload">
         </form>
