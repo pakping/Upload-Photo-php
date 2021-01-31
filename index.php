@@ -6,21 +6,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Index</title>
 	<link href="dist/css/lightbox.min.css" rel="stylesheet">
-	
+
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+	<style>
+.card-img-top {
+    max-height: 20vh; /*not want to take all vertical space*/
+    object-fit: contain;/*show all image, autosized, no cut, in available space*/
+}
+	</style>
 </head>
 <html>
 
 <body>
-
-
 	<header class="bg-primary text-center py-5 mb-4">
 		<div class="container">
 
 			<a href="upload-photo.php" class="btn btn-success">Add Photo</a>
 		</div>
 	</header>
-
 	<!-- Header -->
 	<!-- Page Content -->
 	<div class="container">
@@ -36,13 +40,13 @@
 					<!-- Team photo-->
 					<div class="col-xl-3 col-md-6 mb-4">
 						<div class="card border-0 shadow">
-							<a href="<?php echo $img['img_path']; ?>"  data-lightbox="<?php echo $img['img_id']; ?>"  data-title="<?php echo $img['img_title']; ?>">
-								<img src="<?php echo $img['img_path'] ; ?>" class="card-img-top" alt="...">
+							<a href="<?php echo $img['img_path']; ?>" data-lightbox="<?php echo $img['img_id']; ?>" data-title="<?php echo $img['img_title']; ?>">
+								<img src="<?php echo $img['img_path']; ?>" class="card-img-top" alt="...">
 							</a>
 							<div class="card-body text-center">
 								<h5 class="card-title"><?php echo $img['img_title']; ?></h5>
 								<div class="card-text text-black-50"><?php echo $img['img_name']; ?></div>
-								<a href="#" class="btn btn-primary">โหลดรูปภาพ</a>
+								<a  href="download.php?id=<?=$results['imh_id'];?>" ><button class="btn">download</button></a>
 							</div>
 						</div>
 					</div>
