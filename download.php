@@ -1,15 +1,16 @@
 <?php
-include "config.php"; 
+/* include "db/connect.php"; 
 if(isset($_GET['img_id'])){
 
-$id = $_GET['id'];
-$stat - $db->prepare("select * from newfiles where ide?");
+$id = $_GET['img_id'];
+$stat - $db->prepare("select * from tbl_photos where img_id = '$id' ");
 $stat->bindParam(1, $id); $stat->execute();
 $data = $stat->fetch();
 
 
 $file = 'media/'.$data['filename'];
 if (file_exists($file)) {
+    echo 'humgee';
     header('Content-Description:'.$data['description']);
     header('Content-Type:'.$data['type']);
     header('Content-Disposition:'.$data['disposition'].';filename="'.basename($file).'"');
@@ -20,5 +21,5 @@ if (file_exists($file)) {
     readfile($file);
     exit();
 }
-}
+} */
 //https://stackoverflow.com/questions/52199513/downloading-from-website-directory-with-php

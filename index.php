@@ -18,7 +18,6 @@
 	</style>
 </head>
 <html>
-
 <body>
 	<header class="bg-primary text-center py-5 mb-4">
 		<div class="container">
@@ -28,13 +27,12 @@
 	</header>
 	<!-- Header -->
 	<!-- Page Content -->
-
 				<div class="container">
 					<div class="row g-2">
 						<?php
-						require "db/condb.php";
+						require "db/connect.php";
 						$Squery = "SELECT * FROM tbl_photos ORDER BY img_id DESC";
-						if ($result = mysqli_query($conn, $Squery)) {
+						if ($result = mysqli_query($con, $Squery)) {
 							while ($img = mysqli_fetch_array($result)) {
 
 						?>
@@ -49,7 +47,11 @@
 										<div class="card-body text-center">
 											<h5 class="card-title"><?php echo $img['img_title']; ?></h5>
 											<div class="card-text text-black-50"><?php echo $img['img_name']; ?></div>
-											<a href="download.php?id=<?= $results['imh_id']; ?>"><button class="btn">download</button></a>
+											<a href="<?php	echo$img['img_path']?>" download="<?php $img['img_title'] ?>"><button class="btn">download</button></a>
+											<form action= 'function/delete.php' method= "POST">
+											<input type='hidden' name='del' value=" <?php echo $img["img_id"] ?>"/>
+												<button type='submit'>humgee</button>
+											</form>
 										</div>
 									</div>
 								</div>
@@ -64,7 +66,7 @@
 				</div>
 				<!-- /.container -->
 		
-	<script src="https://code.jquery.com/jquery-3.0.1.slim.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script src="dist/js/lightbox-plus-jquery.js"></script>
 	<script src="dist/js/lightbox.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
